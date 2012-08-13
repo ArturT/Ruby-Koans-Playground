@@ -83,11 +83,11 @@ class AboutHashes < EdgeCase::Koan
     assert_equal 1, hash1[:one]
     assert_equal nil, hash1[:two]
 
-    hash2 = Hash.new("dos")
+    hash2 = Hash.new("dos") #/ "dos" is default value for non existing keys, e.g. 90 line
     hash2[:one] = 1
 
     assert_equal 1, hash2[:one]
-    assert_equal "dos", hash2[:two]
+    assert_equal "dos", hash2[:two] #/ "dos" is default value
   end
 
   def test_default_value_is_the_same_object
