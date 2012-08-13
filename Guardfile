@@ -4,6 +4,6 @@
 # Add files and commands to this file, like the example:
 #   watch(%r{file/path}) { `command(s)` }
 #
-guard 'shell' do
+guard 'shell', :all_after_pass => false do
   watch(/^.*\.rb$/) { `rake` }
 end
