@@ -16,7 +16,7 @@ class AboutConstants < EdgeCase::Koan
 
   def test_nested_constants_are_referenced_by_their_complete_path
     assert_equal "nested", AboutConstants::C
-    assert_equal "nested", ::AboutConstants::C #/ also nested ?
+    assert_equal "nested", ::AboutConstants::C #/ also nested by global path
   end
 
   # ------------------------------------------------------------------
