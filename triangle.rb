@@ -15,6 +15,18 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  hash = Hash.new
+  hash[a] = nil
+  hash[b] = nil
+  hash[c] = nil
+
+  if hash.size == 1
+    :equilateral
+  elsif hash.size == 2
+   :isosceles
+  else
+   :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
