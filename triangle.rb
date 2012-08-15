@@ -16,11 +16,28 @@
 def triangle(a, b, c)
   # WRITE THIS CODE
   hash = Hash.new
-  hash[a] = nil
-  hash[b] = nil
-  hash[c] = nil
+  hash[a] = a
+  hash[b] = b
+  hash[c] = c
+
+  hash.each do |k,v|
+    if v < 0
+      raise TriangleError.new "Sides can't be negative"
+    end
+  end
+
+  if a > b + c or b > a + c or c > a + b
+    raise TriangleError.new "Sum of two sides must be greater than third side"
+  end
+
+  if a + b == c or a + c == b or b + c == a
+    raise TriangleError.new "Two sides can't be equal one side"
+  end
 
   if hash.size == 1
+    if a == 0
+      raise TriangleError.new "Sides can't be equal zero"
+    end
     :equilateral
   elsif hash.size == 2
    :isosceles
