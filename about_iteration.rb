@@ -91,6 +91,16 @@ class AboutIteration < EdgeCase::Koan
 
     # Extra Credit:
     # Describe in your own words what inject does.
+    #
+    # http://stackoverflow.com/a/3124579/905697
+    #
+    # foo.inject(bar) { |result, x| f(result,x) }
+    #
+    # Can always be written as:
+    #
+    # result = bar
+    # foo.each { |x| result = f(result, x) }
+    # result
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays

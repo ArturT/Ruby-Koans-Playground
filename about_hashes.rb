@@ -30,6 +30,8 @@ class AboutHashes < EdgeCase::Koan
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    #
+    # #fetch raise exception
   end
 
   def test_changing_hashes
