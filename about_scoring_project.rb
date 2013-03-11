@@ -31,6 +31,25 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score(dice)
   # You need to write this method
+  sum = 0
+
+  dice.each do |n|
+    sum += 100 if n == 1
+    sum += 50 if n == 5
+  end
+
+  total = dice.inject(Hash.new(0)) { |total, n| total[n] += 1; total }
+
+  dice.uniq.each do |n|
+    if n == 1 && total[n] >= 3
+      sum += 700 # 1000 - 3*100
+    elsif total[n] >= 3
+      sum += n*100
+      sum -= 150 if n == 5 # 3*50
+    end
+  end
+
+  sum
 end
 
 class AboutScoringProject < EdgeCase::Koan
@@ -69,6 +88,7 @@ class AboutScoringProject < EdgeCase::Koan
   def test_score_of_mixed_is_sum
     assert_equal 250, score([2,5,2,2,3])
     assert_equal 550, score([5,5,5,5])
+    assert_equal 1150, score([1,1,1,1,5])
   end
 
 end
