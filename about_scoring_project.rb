@@ -42,10 +42,10 @@ def score(dice)
 
   dice.uniq.each do |n|
     if n == 1 && total[n] >= 3
-      sum += 700 # 1000 - 3*100
+      sum += 700 # 1000 - 3*100 from line 37
     elsif total[n] >= 3
       sum += n*100
-      sum -= 150 if n == 5 # 3*50
+      sum -= 150 if n == 5 # - 3*50 from line 38
     end
   end
 
